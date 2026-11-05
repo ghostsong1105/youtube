@@ -18,8 +18,8 @@ CHANNELS = [
      "mode": "text", "webhook_env": "DISCORD_WEBHOOK_URL"},
     {"name": "emfa1213", "id": "UCxgLmjOYux1dfiuC_2czDcw",
      "mode": "text", "webhook_env": "DISCORD_WEBHOOK_URL"},
-    # 포럼 채널용 (채널 이름은 원하는 대로 바꾸세요)
-    {"name": "Speedrun", "id": "UCYlTdLiS-sQ0R-4RAJ0Icwg",
+    # 포럼 채널용
+    {"name": "WWM 삼평방 Speedrun", "id": "UCYlTdLiS-sQ0R-4RAJ0Icwg",
      "mode": "forum", "webhook_env": "DISCORD_FORUM_WEBHOOK_URL"},
 ]
 
