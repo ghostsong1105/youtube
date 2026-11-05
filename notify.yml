@@ -26,6 +26,7 @@ jobs:
         run: python yt_to_discord.py
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_FORUM_WEBHOOK_URL: ${{ secrets.DISCORD_FORUM_WEBHOOK_URL }}
 
       - name: Save seen.json
         run: |
