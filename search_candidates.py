@@ -14,9 +14,9 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-KEYWORDS = ["연운", "동맹전", "공략"]   # 검색어 (수정 가능)
+KEYWORDS = ["연운", "동맹전", "Where Winds Meet", "Yeonun"]   # 검색어 (수정 가능)
 LOOKBACK_DAYS = 30       # 업로드된 지 이 기간(일) 이내 영상만 후보로
-MAX_RESULTS = 50         # 키워드당 최대 결과 수 (최대 50)
+MAX_RESULTS = 10         # 키워드당 최대 결과 수 (최대 50)
 
 # RSS로 이미 자동 게시되는 채널은 후보에서 제외
 EXCLUDE_CHANNEL_IDS = {
@@ -72,7 +72,7 @@ def yt_search(keyword):
     after = (datetime.now(timezone.utc) - timedelta(days=LOOKBACK_DAYS)).strftime("%Y-%m-%dT%H:%M:%SZ")
     params = {"part": "snippet", "q": keyword, "type": "video", "order": "date",
               "maxResults": MAX_RESULTS, "publishedAfter": after,
-              "regionCode": "KR", "relevanceLanguage": "ko", "key": API_KEY}
+              "key": API_KEY}
     data = request("https://www.googleapis.com/youtube/v3/search?" + urllib.parse.urlencode(params))
     results = []
     for it in data.get("items", []):
