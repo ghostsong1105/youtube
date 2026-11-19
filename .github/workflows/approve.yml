@@ -1,0 +1,30 @@
+name: Approve candidate
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  issues: write
+
+concurrency:
+  group: approve-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  approve:
+    if: github.event.label.name == 'approve'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Post approved video to Discord
+        run: python approve.py
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          DISCORD_APPROVED_WEBHOOK_URL: ${{ secrets.DISCORD_APPROVED_WEBHOOK_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
