@@ -9,8 +9,8 @@ permissions:
   contents: write             # seen.json 커밋용
 
 concurrency:
-  group: yt-notify
-  cancel-in-progress: false   # 동시 실행 방지 (중복 전송 예방)
+  group: repo-state           # search.yml 과 같은 그룹 (커밋 충돌 방지)
+  cancel-in-progress: false
 
 jobs:
   notify:
@@ -35,5 +35,6 @@ jobs:
           git add seen.json
           if ! git diff --cached --quiet; then
             git commit -m "update seen.json"
+            git pull --rebase
             git push
           fi

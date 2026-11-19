@@ -2,7 +2,7 @@ name: Search YouTube candidates
 
 on:
   schedule:
-    - cron: "7 * * * *"      # 매시 7분 (검색 API 할당량 때문에 1시간 간격)
+    - cron: "7 */2 * * *"    # 2시간마다 (검색 API 할당량: 키워드 4개 x 12회 x 100 = 하루 4,800)
   workflow_dispatch:
 
 permissions:
