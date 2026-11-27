@@ -14,7 +14,7 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-KEYWORDS = ["연운", "동맹전", "Where Winds Meet", "Yeonun"]   # 검색어 (수정 가능)
+KEYWORDS = ["연운", "동맹전", "허수아비", "DPS"]   # 검색어 (수정 가능)
 LOOKBACK_DAYS = 30       # 업로드된 지 이 기간(일) 이내 영상만 후보로
 MAX_RESULTS = 10         # 키워드당 최대 결과 수 (최대 50)
 
